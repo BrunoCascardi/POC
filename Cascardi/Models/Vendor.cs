@@ -7,9 +7,9 @@ using System.Web.Mvc;
 
 namespace Cascardi.Models
 {
-    public class Customer
+    public class Vendor
     {
-        public Customer()
+        public Vendor()
         {
         }
 

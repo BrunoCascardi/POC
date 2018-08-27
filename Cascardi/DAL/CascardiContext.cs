@@ -16,6 +16,6 @@ namespace Cascardi.DAL
         }
 
         //public IDbSet<Team> Teams { get; set; }
-        public IDbSet<Customer> Customers { get; set; }
+        public IDbSet<Vendor> Vendors { get; set; }
     }
 }

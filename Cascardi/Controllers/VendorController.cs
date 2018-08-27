@@ -11,14 +11,14 @@ using Cascardi.Models;
 
 namespace Cascardi.Controllers
 {
-    public class CustomerController : Controller
+    public class VendorController : Controller
     {
         private CascardiContext db = new CascardiContext();
 
         // GET: Member
         public ActionResult Index()
         {
-            return View(db.Customers.ToList());
+            return View(db.Vendors.ToList());
         }
 
         // GET: Member/Details/5
@@ -28,12 +28,12 @@ namespace Cascardi.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            Vendor vendor = db.Vendors.Find(id);
+            if (vendor == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(vendor);
         }
 
         // GET: Member/Create
@@ -47,21 +47,21 @@ namespace Cascardi.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,BirthDate,Email,Address")] Customer customer)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,BirthDate,Email,Address")] Vendor vendor)
         {
-            if (!Validation(customer))
+            if (!Validation(vendor))
             {
                 return View();
             }
 
             if (ModelState.IsValid)
             {
-                db.Customers.Add(customer);
+                db.Vendors.Add(vendor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(customer);
+            return View(vendor);
         }
 
         // GET: Member/Edit/5
@@ -71,12 +71,12 @@ namespace Cascardi.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            Vendor vendor = db.Vendors.Find(id);
+            if (vendor == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(vendor);
         }
 
         // POST: Member/Edit/5
@@ -84,20 +84,20 @@ namespace Cascardi.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,BirthDate,Email,Address")] Customer customer)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,BirthDate,Email,Address")] Vendor vendor)
         {
-            if (!Validation(customer))
+            if (!Validation(vendor))
             {
                 return View();
             }
 
             if (ModelState.IsValid)
             {
-                db.Entry(customer).State = EntityState.Modified;
+                db.Entry(vendor).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(customer);
+            return View(vendor);
         }
 
         // GET: Member/Delete/5
@@ -107,12 +107,12 @@ namespace Cascardi.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.Customers.Find(id);
-            if (customer == null)
+            Vendor vendor = db.Vendors.Find(id);
+            if (vendor == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(vendor);
         }
 
         // POST: Member/Delete/5
@@ -120,8 +120,8 @@ namespace Cascardi.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Customer customer = db.Customers.Find(id);
-            db.Customers.Remove(customer);
+            Vendor vendor = db.Vendors.Find(id);
+            db.Vendors.Remove(vendor);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -135,9 +135,9 @@ namespace Cascardi.Controllers
             base.Dispose(disposing);
         }
 
-        public bool Validation(Customer customer)
+        public bool Validation(Vendor vendor)
         {
-            if (db.Customers.Any(w => w.Email == customer.Email && w.Id != customer.Id))
+            if (db.Vendors.Any(w => w.Email == vendor.Email && w.Id != vendor.Id))
             {
                 ModelState.AddModelError("", "Esse mesmo email já está cadastrado");
                 return false;
