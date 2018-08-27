@@ -15,13 +15,13 @@ namespace Cascardi.Controllers
     {
         private CascardiContext db = new CascardiContext();
 
-        // GET: Member
+        // GET: Vendor
         public ActionResult Index()
         {
             return View(db.Vendors.ToList());
         }
 
-        // GET: Member/Details/5
+        // GET: Vendor/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,13 +36,13 @@ namespace Cascardi.Controllers
             return View(vendor);
         }
 
-        // GET: Member/Create
+        // GET: Vendor/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Member/Create
+        // POST: Vendor/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -64,7 +64,7 @@ namespace Cascardi.Controllers
             return View(vendor);
         }
 
-        // GET: Member/Edit/5
+        // GET: Vendor/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -79,7 +79,7 @@ namespace Cascardi.Controllers
             return View(vendor);
         }
 
-        // POST: Member/Edit/5
+        // POST: Vendor/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -100,7 +100,7 @@ namespace Cascardi.Controllers
             return View(vendor);
         }
 
-        // GET: Member/Delete/5
+        // GET: Vendor/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -115,7 +115,7 @@ namespace Cascardi.Controllers
             return View(vendor);
         }
 
-        // POST: Member/Delete/5
+        // POST: Vendor/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
