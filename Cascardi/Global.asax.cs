@@ -1,5 +1,6 @@
 ﻿using Hangfire;
 using Owin;
+using System;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -21,6 +22,8 @@ namespace Cascardi
             GlobalConfiguration.Configuration.UseSqlServerStorage("CascardiContext");
             app.UseHangfireDashboard();
             app.UseHangfireServer();
+
+            RecurringJob.AddOrUpdate(() => Console.WriteLine("This job will execute once in every 5 minutes"), "*/5 * * * *");
         }
     }
 }
