@@ -167,11 +167,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Connected Services\CorreiosServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VendorController.cs" />
     <Compile Include="DAL\CascardiContext.cs" />
@@ -185,21 +180,6 @@
     <Compile Include="Validation\MinAge.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Connected Services\CorreiosServiceReference\Cascardi.CorreiosServiceReference.buscaEventosListaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\CorreiosServiceReference\Cascardi.CorreiosServiceReference.buscaEventosResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\CorreiosServiceReference\Cascardi.CorreiosServiceReference.sroxml.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Connected Services\CorreiosServiceReference\configuration91.svcinfo" />
-    <None Include="Connected Services\CorreiosServiceReference\configuration.svcinfo" />
-    <None Include="Connected Services\CorreiosServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -211,10 +191,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Connected Services\CorreiosServiceReference\rastro.wsdl" />
-    <None Include="Connected Services\CorreiosServiceReference\Rastro_schema1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -267,9 +243,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\CorreiosServiceReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
