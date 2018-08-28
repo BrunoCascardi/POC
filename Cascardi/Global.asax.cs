@@ -1,4 +1,5 @@
-﻿using Hangfire;
+﻿using Cascardi.Service;
+using Hangfire;
 using Owin;
 using System;
 using System.Web.Mvc;
@@ -23,7 +24,7 @@ namespace Cascardi
             app.UseHangfireDashboard();
             app.UseHangfireServer();
 
-            RecurringJob.AddOrUpdate(() => Console.WriteLine("This job will execute once in every 5 minutes"), "*/5 * * * *");
+            RecurringJob.AddOrUpdate(() => CorreiosService.ConsultarEventos(), "*/1 * * * *");
         }
     }
 }
