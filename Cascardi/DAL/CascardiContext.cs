@@ -10,9 +10,9 @@ namespace Cascardi.DAL
 {
     public class CascardiContext : DbContext
     {
-        public CascardiContext()
-            : base("CascardiContext")
+        public CascardiContext() : base("CascardiContext")
         {
+            Database.SetInitializer(new CascardiInitializer());
         }
 
         //public IDbSet<Team> Teams { get; set; }
