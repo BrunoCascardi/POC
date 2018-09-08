@@ -14,7 +14,7 @@ namespace Cascardi.Models
         }
 
         public int Id { get; set; }
-
-        public int Valor { get; set; }
+        public string Mes { get; set; }
+        public double Valor { get; set; }
     }
 }

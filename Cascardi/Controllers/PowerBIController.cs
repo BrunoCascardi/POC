@@ -67,12 +67,19 @@ namespace Cascardi.Controllers
 
         public ActionResult RelatorioVendas()
         {
-            Models.RelatorioVendas rl = new Models.RelatorioVendas()
+            System.Globalization.DateTimeFormatInfo mfi = new System.Globalization.DateTimeFormatInfo();
+
+            for (int i = 0; i < 12; i++)
             {
-                Id = 1,
-                Valor = 100
-            };
-            db.RelatorioVendas.Add(rl);
+                Models.RelatorioVendas rl = new Models.RelatorioVendas()
+                {
+                    Id = 1,
+                    Mes = mfi.GetMonthName(i + 1).ToString(),
+                    Valor = Math.Round(Convert.ToDouble(new Random().Next(1000) + (i * 5)) + (Convert.ToDouble(new Random().NextDouble() + i)), 2)
+                };
+                db.RelatorioVendas.Add(rl);
+            }
+
             db.SaveChanges();
 
             return View("Index");
