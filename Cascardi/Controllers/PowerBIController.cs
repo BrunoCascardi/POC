@@ -54,12 +54,18 @@ namespace Cascardi.Controllers
 
         public ActionResult RelatorioRentabilidade()
         {
-            Models.RelatorioRentabilidade rl = new Models.RelatorioRentabilidade()
+            for (int i = 1; i < 3; i++)
             {
-                Id = 1,
-                Valor = 100
-            };
-            db.RelatorioRentabilidade.Add(rl);
+                Models.RelatorioRentabilidade rl = new Models.RelatorioRentabilidade()
+                {
+                    Id = 1,
+                    Investimento = (i * 100),
+                    Lucro = ((i * i + 3) * 100),
+                    Rentabilidade = (((i * i + 3) * 100)) / (i * 100)
+                };
+                db.RelatorioRentabilidade.Add(rl);
+            }
+
             db.SaveChanges();
 
             return View("Index");
@@ -74,7 +80,7 @@ namespace Cascardi.Controllers
                 Models.RelatorioVendas rl = new Models.RelatorioVendas()
                 {
                     Id = 1,
-                    Mes = mfi.GetMonthName(i + 1).ToString(),
+                    Mes = (i + 1).ToString().PadLeft(2, '0') + "/" + DateTime.Now.Year.ToString(),
                     Valor = Math.Round(Convert.ToDouble(new Random().Next(1000) + (i * 5)) + (Convert.ToDouble(new Random().NextDouble() + i)), 2)
                 };
                 db.RelatorioVendas.Add(rl);

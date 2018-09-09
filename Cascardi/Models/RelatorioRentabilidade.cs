@@ -1,12 +1,4 @@
-﻿
-using Cascardi.Validation;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
-
-namespace Cascardi.Models
+﻿namespace Cascardi.Models
 {
     public class RelatorioRentabilidade
     {
@@ -15,7 +7,8 @@ namespace Cascardi.Models
         }
 
         public int Id { get; set; }
-
-        public int Valor { get; set; }
+        public double Investimento { get; set; }
+        public double Lucro { get; set; }
+        public double Rentabilidade { get; set; }
     }
 }
