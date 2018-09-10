@@ -19,12 +19,19 @@ namespace Cascardi.Controllers
 
         public ActionResult RelatorioCustos()
         {
-            Models.RelatorioCustos rl = new Models.RelatorioCustos()
+            for (int i = 0; i < 12; i++)
             {
-                Id = 1,
-                Valor = 100
-            };
-            db.RelatorioCustos.Add(rl);
+                Models.RelatorioCustos rl = new Models.RelatorioCustos()
+                {
+                    Id = 1,
+                    Data = new DateTime(2018, i + 1, new Random().Next(1, 28)),
+                    Descricao = "Custo_" + i,
+                    Valor = new Random().Next(1, 999) * (i + 1)
+                };
+
+                db.RelatorioCustos.Add(rl);
+            }
+
             db.SaveChanges();
 
             return View("Index");
