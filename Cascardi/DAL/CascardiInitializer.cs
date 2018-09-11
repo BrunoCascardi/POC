@@ -9,6 +9,6 @@ namespace Cascardi.DAL
 {
     public class CascardiInitializer :  DropCreateDatabaseIfModelChanges<CascardiContext>
     {
-
+        
     }
 }
